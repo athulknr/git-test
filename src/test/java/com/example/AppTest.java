@@ -14,4 +14,4 @@ public class AppTest {
     void testNegative() {
         assertEquals(-1, App.add(2, -3));
     }
-}
+} 
