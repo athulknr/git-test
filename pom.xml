@@ -42,7 +42,7 @@
                 <version>3.1.2</version>
             </plugin>
 
-            <!-- Create executable JAR -->
+            <!-- Create executable JAR File -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
