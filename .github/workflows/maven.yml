@@ -10,12 +10,6 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
 
-    # ✅ Job-level environment variables
-    env:
-      JAVA_VERSION: '17'
-      MAVEN_OPTS: '-Xmx1024m'
-
-
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
