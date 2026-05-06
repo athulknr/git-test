@@ -1,8 +1,10 @@
+package com.example;
+
 import java.util.logging.Logger;
 
-public class Main {
+public class App {
 
-    private static final Logger logger = Logger.getLogger(Main.class.getName());
+    private static final Logger logger = Logger.getLogger(App.class.getName());
 
     public static int add(int a, int b) {
         return a + b;
