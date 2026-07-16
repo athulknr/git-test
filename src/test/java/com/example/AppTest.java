@@ -15,3 +15,4 @@ class AppTest {
         assertEquals(-1, App.add(2, -3));
     }
 }
+
