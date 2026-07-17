@@ -15,18 +15,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Step 2: Setup Java (Example for Maven Projects)
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: '17'
 
-      # Step 3: Cache Maven dependencies
       - name: Cache Maven Packages
         uses: actions/cache@v4
         with:
@@ -35,10 +32,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven
 
-      # Step 4: Build the project
       - name: Build Project
         run: mvn clean compile
 
-      # Step 5: Run Unit Tests
       - name: Run Tests
         run: mvn test
