@@ -24,7 +24,7 @@ jobs:
         uses: aws-actions/configure-aws-credentials@v4
         with:
           # IMPORTANT: Replace 'YOUR_IAM_ROLE_ARN_GOES_HERE' with the actual ARN of your IAM role from AWS!
-          role-to-assume: YOUR_IAM_ROLE_ARN_GOES_HERE
+          role-to-assume: arn:aws:iam::876762733712:role/awsses
           # This must be the AWS region where your SES sender identity is verified.
           aws-region: us-east-1 # Example: us-east-1
 
@@ -54,6 +54,6 @@ jobs:
         run: |
           aws ses send-email \
             --from 'bhuvanraj107123@gmail.com' \
-            --destination 'ToAddresses="cherry107123@gmail.com"' \
+            --destination 'ToAddresses="athulkannoth9@gmail.com"' \
             --message 'Subject={Data="❌ Build FAILED - ${{ github.repository }}"},Body={Text={Data="*ALERT:* Build for ${{ github.repository }} on branch `${{ github.ref_name}}` *FAILED!*\n\nCommit: `${{ github.sha}}`\n*Please review logs:* ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}}' \
             --region us-east-1
