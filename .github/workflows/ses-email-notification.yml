@@ -1,3 +1,4 @@
+
 name: CI with AWS SES Email (OIDC) # Name of your workflow
 
 on:
@@ -43,8 +44,8 @@ jobs:
           # The 'from' address MUST be an identity you verified in AWS SES.
           # The 'to' address will receive the email. If your SES account is in sandbox, 'to' must also be verified.
           aws ses send-email \
-            --from 'bhuvanraj107123@gmail.com' \
-            --destination 'ToAddresses="athulk666@gmail.com"' \
+            --from 'athulk666@gmail.com' \
+            --destination 'ToAddresses="athulkannoth9@gmail.com"' \
             --message 'Subject={Data="✅ Build Success - ${{ github.repository }}"},Body={Text={Data="Build for ${{ github.repository }} on branch `${{ github.ref_name}}` was successful!\n\nCommit: `${{ github.sha}}`\nWorkflow Run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}}' \
             --region us-east-1 # Ensure this matches your aws-region above
 
@@ -53,7 +54,7 @@ jobs:
         if: failure()
         run: |
           aws ses send-email \
-            --from 'bhuvanraj107123@gmail.com' \
+            --from 'athulk666@gmail.com' \
             --destination 'ToAddresses="athulkannoth9@gmail.com"' \
             --message 'Subject={Data="❌ Build FAILED - ${{ github.repository }}"},Body={Text={Data="*ALERT:* Build for ${{ github.repository }} on branch `${{ github.ref_name}}` *FAILED!*\n\nCommit: `${{ github.sha}}`\n*Please review logs:* ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"}}' \
             --region us-east-1
